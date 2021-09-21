@@ -56,6 +56,7 @@ class OwnerController {
 		dataBinder.setDisallowedFields("id");
 	}
 
+	// aop 예제 잘못올라간 것 수정
 	@GetMapping("/owners/new")
 	@LogExecutionTime
 	public String initCreationForm(Map<String, Object> model) {
