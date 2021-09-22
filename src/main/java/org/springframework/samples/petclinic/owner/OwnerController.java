@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.Collection;
@@ -56,9 +56,10 @@ class OwnerController {
 		dataBinder.setDisallowedFields("id");
 	}
 
-	// aop 예제 잘못올라간 것 수정
+
 	@GetMapping("/owners/new")
 	@LogExecutionTime
+	@Transactional
 	public String initCreationForm(Map<String, Object> model) {
 		Owner owner = new Owner();
 		model.put("owner", owner);
@@ -139,16 +140,16 @@ class OwnerController {
 	 * @param ownerId the ID of the owner to display
 	 * @return a ModelMap with the model attributes for the view
 	 */
-	@GetMapping("/owners/{ownerId}")
-	@LogExecutionTime
-	public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
-		ModelAndView mav = new ModelAndView("owners/ownerDetails");
-		Owner owner = this.owners.findById(ownerId);
-		for (Pet pet : owner.getPets()) {
-			pet.setVisitsInternal(visits.findByPetId(pet.getId()));
-		}
-		mav.addObject(owner);
-		return mav;
-	}
+//	@GetMapping("/owners/{ownerId}")
+//	@LogExecutionTime
+//	public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
+//		ModelAndView mav = new ModelAndView("owners/ownerDetails");
+//		Owner owner = this.owners.findById(ownerId);
+//		for (Pet pet : owner.getPets()) {
+//			pet.setVisitsInternal(visits.findByPetId(pet.getId()));
+//		}
+//		mav.addObject(owner);
+//		return mav;
+//	}
 
 }
