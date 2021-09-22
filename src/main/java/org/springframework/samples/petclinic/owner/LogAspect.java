@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
-
+// commit test
 @Component // Bean 으로 등록해야 하므로
 @Aspect // Aspect Class
 public class LogAspect {
